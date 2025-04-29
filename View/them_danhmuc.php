@@ -121,7 +121,7 @@
       </tr>
       <?php
       // Kết nối database
-      $conn = new mysqli("localhost", "root", "", "ql_sach");
+      $conn = new mysqli("localhost", "root", "", "ql_sach",3307);
       if ($conn->connect_error) {
           die("Kết nối thất bại: " . $conn->connect_error);
       }

@@ -11,15 +11,7 @@
     background: linear-gradient(to right, #000428, #004e92);
     color: white;
 }
-.navbar-nav {
-    display: flex !important;
-    justify-content: center;
-}
 
-.navbar-collapse {
-    display: flex !important;
-    flex-direction: row;
-}
 .navbar-custom {
     /* background: linear-gradient(90deg, #212121, #424242); Màu xám tối sang trọng */
     background: linear-gradient(to left, #000428, #004e92); /* Gradient xanh đậm huyền bí */
@@ -31,7 +23,20 @@
     border-radius: 50%; /* Làm mềm logo */
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
 }
-
+.navbar-custom .navbar-toggler {
+    background: linear-gradient(135deg,rgb(94, 27, 14), #dd2476); /* Gradient đỏ-tím nổi bật */
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.3); /* Hiệu ứng bóng nhẹ */
+    transition: all 0.3s ease-in-out;
+}
+.navbar-custom .navbar-toggler:hover {
+    background: linear-gradient(135deg, #dd2476, #ff512f);
+    transform: scale(1.1);
+}.navbar-custom {
+    background: linear-gradient(90deg, #1a1a1a, #434343); /* Gradient đen-xám sang trọng */
+}
 .nav-link {
     color: white !important; /* Chữ trắng nổi bật */
     font-weight: bold;
@@ -67,39 +72,49 @@
 </style>
   </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-custom">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="../Buoi_TH6/View/upload/jenkins_logo_icon_170552.ico" alt="Logo" width="32" height="32">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
+    <!-- nav -->
+    <nav class="navbar navbar-light navbar-custom">
+      <div class="container-fluid">
+      <img src="./View/upload/jenkins_logo_icon_170552.ico" alt="" width="32" height="32" class="d-inline-block align-text-top">
+    </a>
+        <button
+          class="navbar-toggler navbar-custom"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                        Menu
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Đăng nhập</a></li>
-                        <li><a class="dropdown-item" href="#">Đăng ký</a></li>
-                        <li><a class="dropdown-item" href="./View/them_sach.php">Thêm sách</a></li>
-                        <li><a class="dropdown-item" href="./View/them_danhmuc.php">Thêm danh mục</a></li>
-                        <li><a class="dropdown-item" href="./View/danhsach.php">Xem danh sách</a></li>
-                        <li><a class="dropdown-item disabled" href="#">Thêm về chúng tôi</a></li>
-                    </ul>
-                </li>
-            </ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <a class="nav-link" href="./View/them_sach.php">Thêm sách</a>          
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="./View/danhsach.php">Xem danh sách</a>
+              
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="./View/them_danhmuc.php">Thêm danh mục</a>
+              
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Thêm về chúng tôi</a>
+              
+            </li> 
+          </ul>
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
+    <!--  -->
 
 <!-- header -->
         <?php
         // Kết nối database
-        $conn = new mysqli("localhost", "root", "", "ql_sach");
+        $conn = new mysqli("localhost", "root", "", "ql_sach",3307);
         if ($conn->connect_error) {
             die("Kết nối thất bại: " . $conn->connect_error);
         }
