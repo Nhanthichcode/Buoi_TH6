@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-    $con = new mysqli("localhost", "root", "vertrigo", "ql_sach");
+    $con = new mysqli("localhost", "root", "", "ql_sach");
     // Kiểm tra kết nối
     if ($con->connect_error) {
         die("Kết nối thất bại: " . $con->connect_error);

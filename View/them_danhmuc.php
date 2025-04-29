@@ -121,7 +121,7 @@
       </tr>
       <?php
       // Kết nối database
-      $conn = new mysqli("localhost", "root", "vertrigo", "ql_sach");
+      $conn = new mysqli("localhost", "root", "", "ql_sach");
       if ($conn->connect_error) {
           die("Kết nối thất bại: " . $conn->connect_error);
       }
@@ -146,12 +146,11 @@
   </table>
      <!-- thêm -->
                  <div class="text-center mb-4 container">
-                    <form action="../Model/xulythem_danhmuc.php" method="post" enctype="multipart/form-data">
+                    <form action="../Model/xulythem_danhmuc.php" method="post">
                     <input class="form-control" type="text" name ="TenDanhMuc" aria-label="Nhập tên danh mục" placeholder="Nhập tên danh mục" required>
                     <br>
                 <button class="btn btn-outline-success me-2" type="submit">Thêm</button>
-                <button class="btn btn-outline-warning me-2" type="reset">Xóa</button>
-                
+                <button class="btn btn-outline-warning me-2" type="reset">Xóa</button>                
                     </form>
 
                </div>

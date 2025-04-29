@@ -99,7 +99,7 @@
   <!-- PHP -->
     <?php
 // Kết nối database
-$conn = new mysqli("localhost", "root", "vertrigo", "ql_sach");
+$conn = new mysqli("localhost", "root", "", "ql_sach");
 if ($conn->connect_error) { die("Kết nối thất bại: " . $conn->connect_error); }
     // Lấy danh sách danh mục
      $sql = "SELECT DanhMucID, TenDanhMuc FROM danhmuc"; 

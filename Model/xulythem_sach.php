@@ -33,7 +33,7 @@
         </div>
       </nav>
     <?php
-    $conn = new mysqli("localhost", "root", "vertrigo", "ql_sach");
+    $conn = new mysqli("localhost", "root", "", "ql_sach");
     // Kiểm tra kết nối
     if ($conn->connect_error) {
         die("Kết nối thất bại: " . $conn->connect_error);

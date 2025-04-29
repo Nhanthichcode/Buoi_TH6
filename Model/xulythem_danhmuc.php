@@ -7,23 +7,27 @@
 </head>
 <body>
     <?php
-    $con = new mysqli("localhost", "root", "vertrigo", "ql_sach");
-    // Kiểm tra kết nối
-    if ($con->connect_error) {
-        die("Kết nối thất bại: " . $con->connect_error);
-    }
+    $conn = new mysqli("localhost", "root", "", "ql_sach");
+// Kiểm tra kết nối
+if ($conn->connect_error) {
+    die("Kết nối thất bại: " . $conn->connect_error);
+}
     // Nhận dữ liệu từ form
     // id tự tăng
-    $category = $_POST['TenDanhMuc'];
+    $category = trim($_POST['TenDanhMuc']); // Xóa khoảng trắng
+$category = htmlspecialchars($category); // Ngăn XSS
+$category = mysqli_real_escape_string($conn, $category);
     // Thêm vào database
     $sql = "INSERT INTO danhmuc (TenDanhMuc) VALUES ('$category')";
-    if ($con->query($sql) === TRUE) {
+    if ($conn->query($sql) === TRUE) {
+    echo "<script>alert('Thêm danh mục thành công!');</script>";
+    echo "<script>window.location.href='../View/them_danhmuc.php';</script>";
     } else {
-        echo "Lỗi: " . $con->error;
+        echo "Lỗi: " . $conn->error;
     }
     // Đóng kết nối
-    $con->close();
-    echo "<script>alert('Xóa sách thành công!');</script>";
+    $conn->close();
+    echo "<script>alert('Thêm danh mục thành công!');</script>";
     echo "<script>window.location.href='../View/them_danhmuc.php';</script>";
     ?>
 </body>

@@ -1,7 +1,7 @@
 <?php
 define('DB_HOST', 'mysql.render.com'); // Cập nhật theo Render
 define('DB_USER', 'root'); // Tài khoản MySQL
-define('DB_PASS', 'vertrigo'); // Mật khẩu MySQL
+define('DB_PASS', ''); // Mật khẩu MySQL
 define('DB_NAME', 'ql_sach'); // Tên database
 
 // Kết nối MySQL
